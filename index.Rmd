@@ -1,0 +1,21 @@
+--- 
+title: "전공의정원관련 신경과 보고서"
+author: "중앙대학교 신경과학교실 박광열"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+# output:
+  # word_document:
+  #   highlight: tango
+  #   reference_docx: korean-template.docx
+  # pdf_document:
+  #   latex_engine: xelatex
+mainfont: NanumGothic
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+# Things to be done {-}
+
