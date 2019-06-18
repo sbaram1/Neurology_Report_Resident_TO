@@ -4,6 +4,7 @@ author: "중앙대학교 신경과학교실 박광열"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
+# output: bookdown::word_document2
 # output:
   # word_document:
   #   highlight: tango

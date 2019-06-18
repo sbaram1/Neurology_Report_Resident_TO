@@ -35,7 +35,7 @@ global <- data.frame(
 # Resident 665/year, junior 3727
 ```
 
-```{r echo=F}
+```{r echo=F, fig.width=8, fig.height=4}
 global %>% 
   ggplot(aes(country, NoNeurol, color = country)) +
     geom_point(aes(size = NoNeurol)) +
