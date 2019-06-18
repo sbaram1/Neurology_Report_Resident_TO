@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.6.12)  17 JUN 2019 08:45
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.6.12)  18 JUN 2019 10:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -621,66 +621,42 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip54
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count290
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: xetex.def on input line 147.
-(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
-)) (/usr/local/texlive/2019/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
-Package: fancyvrb 2019/01/15
-Style option: `fancyvrb' v3.2a <2019/01/15> (tvz)
-\FV@CodeLineNo=\count291
-\FV@InFile=\read2
-\FV@TabBox=\box49
-\c@FancyVerbLine=\count292
-\FV@StepNumber=\count293
-\FV@OutFile=\write3
-) (/usr/local/texlive/2019/texmf-dist/tex/latex/framed/framed.sty
-Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip55
-\fb@frw=\dimen160
-\fb@frh=\dimen161
-\FrameRule=\dimen162
-\FrameSep=\dimen163
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)+ FMi change
-\LTleft=\skip56
-\LTright=\skip57
-\LTpre=\skip58
-\LTpost=\skip59
-\LTchunksize=\count294
-\LTcapwidth=\dimen164
-\LT@head=\box50
-\LT@firsthead=\box51
-\LT@foot=\box52
-\LT@lastfoot=\box53
-\LT@cols=\count295
-\LT@rows=\count296
-\c@LT@tables=\count297
-\c@LT@chunks=\count298
+\LTleft=\skip55
+\LTright=\skip56
+\LTpre=\skip57
+\LTpost=\skip58
+\LTchunksize=\count291
+\LTcapwidth=\dimen160
+\LT@head=\box49
+\LT@firsthead=\box50
+\LT@foot=\box51
+\LT@lastfoot=\box52
+\LT@cols=\count292
+\LT@rows=\count293
+\c@LT@tables=\count294
+\c@LT@chunks=\count295
 \LT@p@ftn=\toks24
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2016/04/27 v1.618033 publication quality tables
-\heavyrulewidth=\dimen165
-\lightrulewidth=\dimen166
-\cmidrulewidth=\dimen167
-\belowrulesep=\dimen168
-\belowbottomsep=\dimen169
-\aboverulesep=\dimen170
-\abovetopsep=\dimen171
-\cmidrulesep=\dimen172
-\cmidrulekern=\dimen173
-\defaultaddspace=\dimen174
-\@cmidla=\count299
-\@cmidlb=\count300
-\@aboverulesep=\dimen175
-\@belowrulesep=\dimen176
-\@thisruleclass=\count301
-\@lastruleclass=\count302
-\@thisrulewidth=\dimen177
+\heavyrulewidth=\dimen161
+\lightrulewidth=\dimen162
+\cmidrulewidth=\dimen163
+\belowrulesep=\dimen164
+\belowbottomsep=\dimen165
+\aboverulesep=\dimen166
+\abovetopsep=\dimen167
+\cmidrulesep=\dimen168
+\cmidrulekern=\dimen169
+\defaultaddspace=\dimen170
+\@cmidla=\count296
+\@cmidlb=\count297
+\@aboverulesep=\dimen171
+\@belowrulesep=\dimen172
+\@thisruleclass=\count298
+\@lastruleclass=\count299
+\@thisrulewidth=\dimen173
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/graphics.sty
@@ -691,9 +667,11 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 99.
-)
-\Gin@req@height=\dimen178
-\Gin@req@width=\dimen179
+(/usr/local/texlive/2019/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+))
+\Gin@req@height=\dimen174
+\Gin@req@width=\dimen175
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/grffile.sty
 Package: grffile 2017/06/30 v1.18 Extended file name support for graphics (HO)
 Package grffile Info: Option `multidot' is set to `true'.
@@ -704,38 +682,37 @@ Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
 Package: parskip 2019-01-16 v2.0c non-zero parskip adjustments
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip60
-\thanksmargin=\skip61
-\droptitle=\skip62
+\thanksmarkwidth=\skip59
+\thanksmargin=\skip60
+\droptitle=\skip61
 ) (./Neurology_Report_Resident_TO.aux)
 \openout1 = `Neurology_Report_Resident_TO.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 133.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 133.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 93.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 133.
-LaTeX Font Info:    ... okay on input line 133.
-LaTeX Info: Redefining \microtypecontext on input line 133.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 93.
+LaTeX Font Info:    ... okay on input line 93.
+LaTeX Info: Redefining \microtypecontext on input line 93.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -1187,26 +1164,26 @@ Package microtype Info: Character `\quotedblbase ' is missing
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 133.
+\AtBeginShipoutBox=\box53
+Package hyperref Info: Link coloring OFF on input line 93.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count303
+\c@section@level=\count300
 )
-LaTeX Info: Redefining \ref on input line 133.
-LaTeX Info: Redefining \pageref on input line 133.
-LaTeX Info: Redefining \nameref on input line 133.
+LaTeX Info: Redefining \ref on input line 93.
+LaTeX Info: Redefining \pageref on input line 93.
+LaTeX Info: Redefining \nameref on input line 93.
 (./Neurology_Report_Resident_TO.out) (./Neurology_Report_Resident_TO.out)
-\@outlinefile=\write4
-\openout4 = `Neurology_Report_Resident_TO.out'.
+\@outlinefile=\write3
+\openout3 = `Neurology_Report_Resident_TO.out'.
 
 LaTeX Font Info:    Font shape `TU/NanumGothic(0)/m/n' will be
-(Font)              scaled to size 17.94496pt on input line 134.
+(Font)              scaled to size 17.94496pt on input line 94.
 LaTeX Font Info:    Font shape `TU/NanumGothic(0)/m/n' will be
-(Font)              scaled to size 10.38281pt on input line 134.
+(Font)              scaled to size 10.38281pt on input line 94.
 Package microtype Info: Character `\quotesinglbase ' is missing
 (microtype)             in font `\TU/NanumGothic(0)/m/n/12'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1215,10 +1192,10 @@ Package microtype Info: Character `\quotedblbase ' is missing
 (microtype)             Ignoring protrusion settings for this character.
 
 LaTeX Font Warning: Font shape `TU/NanumGothic(0)/m/it' undefined
-(Font)              using `TU/NanumGothic(0)/m/n' instead on input line 134.
+(Font)              using `TU/NanumGothic(0)/m/n' instead on input line 94.
 
 LaTeX Font Info:    Font shape `TU/NanumGothic(0)/m/it' will be
-(Font)              scaled to size 10.38281pt on input line 134.
+(Font)              scaled to size 10.38281pt on input line 94.
 Package microtype Info: Character `\quotesinglbase ' is missing
 (microtype)             in font `\TU/NanumGothic(0)/m/it/12'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1231,19 +1208,19 @@ Package microtype Info: Character `\quotedblbase ' is missing
 ]
 
 LaTeX Font Warning: Font shape `TU/NanumGothic(0)/m/sl' undefined
-(Font)              using `TU/NanumGothic(0)/m/n' instead on input line 138.
+(Font)              using `TU/NanumGothic(0)/m/n' instead on input line 98.
 
 [2
 
 ]
 LaTeX Font Info:    Font shape `TU/NanumGothic(0)/m/n' will be
-(Font)              scaled to size 21.52702pt on input line 138.
+(Font)              scaled to size 21.52702pt on input line 98.
 LaTeX Font Info:    Font shape `TU/NanumGothic(0)/bx/n' will be
-(Font)              scaled to size 21.52702pt on input line 138.
+(Font)              scaled to size 21.52702pt on input line 98.
 (./Neurology_Report_Resident_TO.toc
 LaTeX Font Info:    Font shape `TU/NanumGothic(0)/bx/n' will be
 (Font)              scaled to size 8.65234pt on input line 1.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 6.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 4.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1251,42 +1228,42 @@ File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 File: mt-LatinModernRoman.cfg 2013/03/13 v1.0 microtype config. file: Latin Mod
 ern Roman (RS)
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 6.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 4.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 6.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 4.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 6.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 4.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 6.
+(Font)              <10> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 6.
+(Font)              <7> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 6.
-LaTeX Font Info:    Try loading font information for U+msa on input line 6.
+(Font)              <5> on input line 4.
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 6.
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ))
-\tf@toc=\write5
-\openout5 = `Neurology_Report_Resident_TO.toc'.
+\tf@toc=\write4
+\openout4 = `Neurology_Report_Resident_TO.toc'.
 
 [3]
 LaTeX Font Info:    Font shape `TU/NanumGothic(0)/m/sl' will be
-(Font)              scaled to size 8.65234pt on input line 141.
+(Font)              scaled to size 8.65234pt on input line 101.
 Package microtype Info: Character `\quotesinglbase ' is missing
 (microtype)             in font `\TU/NanumGothic(0)/m/sl/10'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1300,63 +1277,170 @@ Package microtype Info: Character `\quotedblbase ' is missing
 ]
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/NanumGothic(0)/bx/n' will be
-(Font)              scaled to size 17.94496pt on input line 145.
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 153.
-File: Neurology_Report_Resident_TO_files/figure-latex/nice-fig-1.pdf Graphic fi
-le (type pdf)
-<use Neurology_Report_Resident_TO_files/figure-latex/nice-fig-1.pdf>
-[7] [8]
-Chapter 2.
-[9
+(Font)              scaled to size 17.94496pt on input line 105.
+Missing character: There is no ∙ in font NanumGothic/AAT:mapping=tex-text;!
 
-] [10
+Package natbib Warning: Citation `이러함' on page 7 undefined on input line 117.
+
+[7] [8
 
 ]
+Chapter 2.
+LaTeX Font Info:    Font shape `TU/NanumGothic(0)/m/n' will be
+(Font)              scaled to size 12.45937pt on input line 127.
+LaTeX Font Info:    Font shape `TU/NanumGothic(0)/bx/n' will be
+(Font)              scaled to size 12.45937pt on input line 127.
+LaTeX Font Info:    Font shape `TU/NanumGothic(0)/bx/n' will be
+(Font)              scaled to size 10.38281pt on input line 130.
+
+Underfull \hbox (badness 1062) in paragraph at lines 176--178
+[]\TU/NanumGothic(0)/m/sl/10 수요추계모형에서는 인구학적인 요인과 더불어 보험적용기준의 변화에 따른 변화 (MRI의 보험
+적용등)가 같이
+ []
+
+Missing character: There is no 전 in font [lmmono10-regular]:!
+Missing character: There is no 공 in font [lmmono10-regular]:!
+Missing character: There is no 의 in font [lmmono10-regular]:!
+Missing character: There is no 를 in font [lmmono10-regular]:!
+Missing character: There is no 고 in font [lmmono10-regular]:!
+Missing character: There is no 려 in font [lmmono10-regular]:!
+Missing character: There is no 해 in font [lmmono10-regular]:!
+Missing character: There is no 야 in font [lmmono10-regular]:!
+Missing character: There is no 함 in font [lmmono10-regular]:!
+[9]
+Missing character: There is no 현 in font [lmmono10-regular]:!
+Missing character: There is no 재 in font [lmmono10-regular]:!
+Missing character: There is no 시 in font [lmmono10-regular]:!
+Missing character: There is no 스 in font [lmmono10-regular]:!
+Missing character: There is no 템 in font [lmmono10-regular]:!
+Missing character: There is no 에 in font [lmmono10-regular]:!
+Missing character: There is no 서 in font [lmmono10-regular]:!
+Missing character: There is no 는 in font [lmmono10-regular]:!
+Missing character: There is no 전 in font [lmmono10-regular]:!
+Missing character: There is no 공 in font [lmmono10-regular]:!
+Missing character: There is no 의 in font [lmmono10-regular]:!
+Missing character: There is no 인 in font [lmmono10-regular]:!
+Missing character: There is no 력 in font [lmmono10-regular]:!
+Missing character: There is no 이 in font [lmmono10-regular]:!
+Missing character: There is no 의 in font [lmmono10-regular]:!
+Missing character: There is no 료 in font [lmmono10-regular]:!
+Missing character: There is no 공 in font [lmmono10-regular]:!
+Missing character: There is no 급 in font [lmmono10-regular]:!
+Missing character: There is no 의 in font [lmmono10-regular]:!
+Missing character: There is no 상 in font [lmmono10-regular]:!
+Missing character: There is no 당 in font [lmmono10-regular]:!
+Missing character: There is no 부 in font [lmmono10-regular]:!
+Missing character: There is no 분 in font [lmmono10-regular]:!
+Missing character: There is no 을 in font [lmmono10-regular]:!
+Missing character: There is no 차 in font [lmmono10-regular]:!
+Missing character: There is no 지 in font [lmmono10-regular]:!
+Missing character: There is no 하 in font [lmmono10-regular]:!
+Missing character: There is no 고 in font [lmmono10-regular]:!
+Missing character: There is no 있 in font [lmmono10-regular]:!
+Missing character: There is no 는 in font [lmmono10-regular]:!
+Missing character: There is no 데 in font [lmmono10-regular]:!
+Missing character: There is no 전 in font [lmmono10-regular]:!
+Missing character: There is no 공 in font [lmmono10-regular]:!
+Missing character: There is no 의 in font [lmmono10-regular]:!
+Missing character: There is no 를 in font [lmmono10-regular]:!
+Missing character: There is no 감 in font [lmmono10-regular]:!
+Missing character: There is no 소 in font [lmmono10-regular]:!
+Missing character: There is no 시 in font [lmmono10-regular]:!
+Missing character: There is no 킨 in font [lmmono10-regular]:!
+Missing character: There is no 다 in font [lmmono10-regular]:!
+Missing character: There is no 면 in font [lmmono10-regular]:!
+Missing character: There is no 그 in font [lmmono10-regular]:!
+Missing character: There is no 만 in font [lmmono10-regular]:!
+Missing character: There is no 큼 in font [lmmono10-regular]:!
+Missing character: There is no 전 in font [lmmono10-regular]:!
+Missing character: There is no 문 in font [lmmono10-regular]:!
+Missing character: There is no 의 in font [lmmono10-regular]:!
+Missing character: There is no 가 in font [lmmono10-regular]:!
+Missing character: There is no 더 in font [lmmono10-regular]:!
+Missing character: There is no 필 in font [lmmono10-regular]:!
+Missing character: There is no 요 in font [lmmono10-regular]:!
+Missing character: There is no 함 in font [lmmono10-regular]:!
+Missing character: There is no 에 in font [lmmono10-regular]:!
+Missing character: There is no 도 in font [lmmono10-regular]:!
+Missing character: There is no 이 in font [lmmono10-regular]:!
+Missing character: There is no 에 in font [lmmono10-regular]:!
+Missing character: There is no 대 in font [lmmono10-regular]:!
+Missing character: There is no 한 in font [lmmono10-regular]:!
+Missing character: There is no 고 in font [lmmono10-regular]:!
+Missing character: There is no 려 in font [lmmono10-regular]:!
+Missing character: There is no 가 in font [lmmono10-regular]:!
+Missing character: There is no 없 in font [lmmono10-regular]:!
+Missing character: There is no 음 in font [lmmono10-regular]:!
+Missing character: There is no 전 in font [lmmono10-regular]:!
+Missing character: There is no 공 in font [lmmono10-regular]:!
+Missing character: There is no 의 in font [lmmono10-regular]:!
+Missing character: There is no 가 in font [lmmono10-regular]:!
+Missing character: There is no 없 in font [lmmono10-regular]:!
+Missing character: There is no 으 in font [lmmono10-regular]:!
+Missing character: There is no 면 in font [lmmono10-regular]:!
+Missing character: There is no 전 in font [lmmono10-regular]:!
+Missing character: There is no 문 in font [lmmono10-regular]:!
+Missing character: There is no 의 in font [lmmono10-regular]:!
+Missing character: There is no 의 in font [lmmono10-regular]:!
+Missing character: There is no 생 in font [lmmono10-regular]:!
+Missing character: There is no 산 in font [lmmono10-regular]:!
+Missing character: There is no 성 in font [lmmono10-regular]:!
+Missing character: There is no 이 in font [lmmono10-regular]:!
+Missing character: There is no 떨 in font [lmmono10-regular]:!
+Missing character: There is no 어 in font [lmmono10-regular]:!
+Missing character: There is no 지 in font [lmmono10-regular]:!
+Missing character: There is no 기 in font [lmmono10-regular]:!
+Missing character: There is no 때 in font [lmmono10-regular]:!
+Missing character: There is no 문 in font [lmmono10-regular]:!
+
+Overfull \hbox (11.85858pt too wide) in paragraph at lines 212--213
+[]\TU/NanumGothic(0)/m/sl/10 출산휴가(90일), 육아휴직 []$[][][][][] [] [] [] [][][][] []
+ [][][][][] [] [][] [] [][] [] [][] [] [][][][][][][][] [] [][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[] 
+ []
+
+[10]
 Chapter 3.
-[11] [12
+[11
+
+] [12
 
 ]
 Chapter 4.
-LaTeX Font Info:    Font shape `TU/NanumGothic(0)/m/it' will be
-(Font)              scaled to size 8.65234pt on input line 228.
-Package microtype Info: Character `\quotesinglbase ' is missing
-(microtype)             in font `\TU/NanumGothic(0)/m/it/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `\quotedblbase ' is missing
-(microtype)             in font `\TU/NanumGothic(0)/m/it/10'.
-(microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Font shape `TU/NanumGothic(0)/m/n' will be
-(Font)              scaled to size 12.45937pt on input line 231.
-LaTeX Font Info:    Font shape `TU/NanumGothic(0)/bx/n' will be
-(Font)              scaled to size 12.45937pt on input line 231.
 [13] [14
 
 ]
 Chapter 5.
 (./Neurology_Report_Resident_TO.bbl [15] [16
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 244.
+]
+
+Package natbib Warning: Empty `thebibliography' environment on input line 3.
+
+)
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 314.
 [17]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 244.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 314.
 (./Neurology_Report_Resident_TO.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 244.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 244.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 314.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 314.
 Package rerunfilecheck Info: File `Neurology_Report_Resident_TO.out' has not ch
 anged.
-(rerunfilecheck)             Checksum: AC835712FF56FB93562B7B89F9F7B565.
+(rerunfilecheck)             Checksum: 5A6CAC11A126224545D830ACD0C2F1D8.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 24436 strings out of 492909
- 455672 string characters out of 6132923
- 581814 words of memory out of 5000000
- 28257 multiletter control sequences out of 15000+600000
+ 23923 strings out of 492909
+ 447668 string characters out of 6132923
+ 570283 words of memory out of 5000000
+ 27760 multiletter control sequences out of 15000+600000
  545105 words of font info for 60 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 47i,8n,116p,825b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,4n,116p,825b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on Neurology_Report_Resident_TO.pdf (17 pages).

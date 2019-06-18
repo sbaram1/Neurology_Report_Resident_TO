@@ -1,5 +1,6 @@
 book_filename: "Neurology_Report_Resident_TO"
 delete_merged_file: true
+output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "

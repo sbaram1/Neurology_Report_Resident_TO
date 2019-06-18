@@ -1,5 +1,5 @@
 --- 
-title: "전공의정원관련 신경과 보고서"
+title: "전공의 정원관련 신경과 보고서"
 author: "중앙대학교 신경과학교실 박광열"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -18,4 +18,6 @@ description: "This is a minimal example of using the bookdown package to write a
 ---
 
 # Things to be done {-}
+
+
 
