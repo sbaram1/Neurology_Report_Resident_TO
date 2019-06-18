@@ -62,7 +62,7 @@ global %>%
 •	미국의 경우 2012년 기준 인구 10만명당 신경과 전문의는 5.21명이며 2025년에는 6.21명이 필요할 것으로 예상되고 있음.
 
 
-## The number of neurologist in Korea
+## 한국의 신경과 전문의 연령별 분포 (2018.4기준)
 
 ```{r echo=F}
 KNA_db <- readRDS("data/KNA_db.rds")
