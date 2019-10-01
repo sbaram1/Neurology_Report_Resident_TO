@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.28)  1 OCT 2019 21:32
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.9.28)  1 OCT 2019 21:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1419,7 +1419,7 @@ File: Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-14-1.pdf Gr
 aphic file (type pdf)
 <use Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-14-1.pdf>
 
-Underfull \vbox (badness 2050) has occurred while \output is active []
+Underfull \vbox (badness 1137) has occurred while \output is active []
 
 [21]
 File: Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-16-1.pdf Gr
@@ -1427,15 +1427,15 @@ aphic file (type pdf)
 <use Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-16-1.pdf>
 [22]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 527.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 533.
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 556--556
+Overfull \hbox (38.25pt too wide) in paragraph at lines 562--562
 []\TU/lmtt/m/n/10 ## Warning: Removed 429 rows containing non-finite values (st
 at_boxplot).[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 560--560
+Overfull \hbox (12.0pt too wide) in paragraph at lines 566--566
 []\TU/lmtt/m/n/10 ## Warning: Removed 429 rows containing missing values (geom_
 point).[] 
  []
@@ -1445,13 +1445,13 @@ File: Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-17-1.pdf Gr
 aphic file (type pdf)
 <use Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-17-1.pdf>
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 595--595
+Overfull \hbox (43.5pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ## Warning: Removed 1280 rows containing non-finite values (s
 tat_boxplot).[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 599--599
+Overfull \hbox (17.25pt too wide) in paragraph at lines 605--605
 []\TU/lmtt/m/n/10 ## Warning: Removed 1280 rows containing missing values (geom
 _point).[] 
  []
@@ -1467,15 +1467,15 @@ File: Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-17-3.pdf Gr
 aphic file (type pdf)
 <use Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-17-3.pdf>
 No file Neurology_Report_Resident_TO.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 637.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 643.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [25] [26]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 637.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 643.
 (./Neurology_Report_Resident_TO.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 637.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 637.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 643.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 643.
 Package rerunfilecheck Info: File `Neurology_Report_Resident_TO.out' has not ch
 anged.
 (rerunfilecheck)             Checksum: 9716FA881817D855447DCCF3438EBE2F.

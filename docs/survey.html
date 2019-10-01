@@ -237,7 +237,7 @@ PSY:554
 </div>
 <div id="section-14" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> 신경과 의사중 급성 뇌경색 치료에 참여하는 인원</h3>
-<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <ul>
 <li>신경과 의사중 57.14%가 급성 뇌경색 치료에 참여하고 있음.</li>
 </ul>
@@ -367,7 +367,7 @@ PSY
 </tr>
 </tbody>
 </table>
-<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <ul>
 <li>평균적으로 흉부외과, 일반외과, 신경과의 평균 주중 근무시간이 길다.</li>
 </ul>
@@ -428,15 +428,15 @@ Reperfusion Tx (+)
 </tr>
 </tbody>
 </table>
-<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <ul>
 <li><p>또한, 신경과 의사중에서도 급성기 뇌경색 치료를 담당하는 인력의 평균 근무시간을 더 길다.</p></li>
 <li><p>위의 결과를 보면 과별로도 근무시간이 차이가 나며, 같은 과 내에서도 응급질환의 진료여부에 따라 근무 부담에 차이가 난다.</p></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="survey.html#cb2-1"></a>db <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(DQ1_Sepcialty) <span class="op">%&gt;%</span></span>
-<span id="cb2-2"><a href="survey.html#cb2-2"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">meanworkhour =</span> <span class="kw">mean</span>(A1_<span class="dv">2</span>_worktime_saturday, <span class="dt">na.rm =</span> T),</span>
-<span id="cb2-3"><a href="survey.html#cb2-3"></a>            <span class="dt">maxworkhour =</span> <span class="kw">max</span>(A1_<span class="dv">2</span>_worktime_saturday, <span class="dt">na.rm =</span> T),</span>
-<span id="cb2-4"><a href="survey.html#cb2-4"></a>            <span class="dt">minworkhour =</span> <span class="kw">min</span>(A1_<span class="dv">2</span>_worktime_saturday, <span class="dt">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="survey.html#cb3-1"></a>db <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(DQ1_Sepcialty) <span class="op">%&gt;%</span></span>
+<span id="cb3-2"><a href="survey.html#cb3-2"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">meanworkhour =</span> <span class="kw">mean</span>(A1_<span class="dv">2</span>_worktime_saturday, <span class="dt">na.rm =</span> T),</span>
+<span id="cb3-3"><a href="survey.html#cb3-3"></a>            <span class="dt">maxworkhour =</span> <span class="kw">max</span>(A1_<span class="dv">2</span>_worktime_saturday, <span class="dt">na.rm =</span> T),</span>
+<span id="cb3-4"><a href="survey.html#cb3-4"></a>            <span class="dt">minworkhour =</span> <span class="kw">min</span>(A1_<span class="dv">2</span>_worktime_saturday, <span class="dt">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 4
 ##   DQ1_Sepcialty meanworkhour maxworkhour minworkhour
 ##   &lt;fct&gt;                &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
@@ -445,17 +445,17 @@ Reperfusion Tx (+)
 ## 3 NU                    4.86          24           1
 ## 4 PED                   5.15          24           1
 ## 5 PSY                   4.62          24           1</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="survey.html#cb4-1"></a><span class="kw">ggplot</span>(db, <span class="kw">aes</span>(<span class="dt">x =</span> DQ1_Sepcialty, <span class="dt">y =</span> A1_<span class="dv">2</span>_worktime_saturday)) <span class="op">+</span></span>
-<span id="cb4-2"><a href="survey.html#cb4-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> DQ1_Sepcialty), <span class="dt">alpha =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb4-3"><a href="survey.html#cb4-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> DQ1_Sepcialty, <span class="dt">alpha =</span> <span class="fl">0.1</span>)) <span class="op">+</span></span>
-<span id="cb4-4"><a href="survey.html#cb4-4"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;PED&quot;</span>, <span class="st">&quot;GS&quot;</span>, <span class="st">&quot;PSY&quot;</span>, <span class="st">&quot;CS&quot;</span>, <span class="st">&quot;NU&quot;</span>, <span class="st">&quot;Multi&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="survey.html#cb5-1"></a><span class="kw">ggplot</span>(db, <span class="kw">aes</span>(<span class="dt">x =</span> DQ1_Sepcialty, <span class="dt">y =</span> A1_<span class="dv">2</span>_worktime_saturday)) <span class="op">+</span></span>
+<span id="cb5-2"><a href="survey.html#cb5-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> DQ1_Sepcialty), <span class="dt">alpha =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb5-3"><a href="survey.html#cb5-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> DQ1_Sepcialty, <span class="dt">alpha =</span> <span class="fl">0.1</span>)) <span class="op">+</span></span>
+<span id="cb5-4"><a href="survey.html#cb5-4"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;PED&quot;</span>, <span class="st">&quot;GS&quot;</span>, <span class="st">&quot;PSY&quot;</span>, <span class="st">&quot;CS&quot;</span>, <span class="st">&quot;NU&quot;</span>, <span class="st">&quot;Multi&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning: Removed 429 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 429 rows containing missing values (geom_point).</code></pre>
-<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="survey.html#cb7-1"></a>db <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(DQ1_Sepcialty) <span class="op">%&gt;%</span></span>
-<span id="cb7-2"><a href="survey.html#cb7-2"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">meanworkhour =</span> <span class="kw">mean</span>(A1_<span class="dv">3</span>_worktime_sunday, <span class="dt">na.rm =</span> T),</span>
-<span id="cb7-3"><a href="survey.html#cb7-3"></a>            <span class="dt">maxworkhour =</span> <span class="kw">max</span>(A1_<span class="dv">3</span>_worktime_sunday, <span class="dt">na.rm =</span> T),</span>
-<span id="cb7-4"><a href="survey.html#cb7-4"></a>            <span class="dt">minworkhour =</span> <span class="kw">min</span>(A1_<span class="dv">3</span>_worktime_sunday, <span class="dt">na.rm =</span> T))</span></code></pre></div>
+<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="survey.html#cb8-1"></a>db <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(DQ1_Sepcialty) <span class="op">%&gt;%</span></span>
+<span id="cb8-2"><a href="survey.html#cb8-2"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">meanworkhour =</span> <span class="kw">mean</span>(A1_<span class="dv">3</span>_worktime_sunday, <span class="dt">na.rm =</span> T),</span>
+<span id="cb8-3"><a href="survey.html#cb8-3"></a>            <span class="dt">maxworkhour =</span> <span class="kw">max</span>(A1_<span class="dv">3</span>_worktime_sunday, <span class="dt">na.rm =</span> T),</span>
+<span id="cb8-4"><a href="survey.html#cb8-4"></a>            <span class="dt">minworkhour =</span> <span class="kw">min</span>(A1_<span class="dv">3</span>_worktime_sunday, <span class="dt">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 4
 ##   DQ1_Sepcialty meanworkhour maxworkhour minworkhour
 ##   &lt;fct&gt;                &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
@@ -464,17 +464,17 @@ Reperfusion Tx (+)
 ## 3 NU                    5.52          24           1
 ## 4 PED                   5.93          24           1
 ## 5 PSY                   7             24           1</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="survey.html#cb9-1"></a><span class="kw">ggplot</span>(db, <span class="kw">aes</span>(<span class="dt">x =</span> DQ1_Sepcialty, <span class="dt">y =</span> A1_<span class="dv">3</span>_worktime_sunday)) <span class="op">+</span></span>
-<span id="cb9-2"><a href="survey.html#cb9-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> DQ1_Sepcialty), <span class="dt">alpha =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb9-3"><a href="survey.html#cb9-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> DQ1_Sepcialty, <span class="dt">alpha =</span> <span class="fl">0.1</span>)) <span class="op">+</span></span>
-<span id="cb9-4"><a href="survey.html#cb9-4"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;PED&quot;</span>, <span class="st">&quot;GS&quot;</span>, <span class="st">&quot;PSY&quot;</span>, <span class="st">&quot;CS&quot;</span>, <span class="st">&quot;NU&quot;</span>, <span class="st">&quot;Multi&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="survey.html#cb10-1"></a><span class="kw">ggplot</span>(db, <span class="kw">aes</span>(<span class="dt">x =</span> DQ1_Sepcialty, <span class="dt">y =</span> A1_<span class="dv">3</span>_worktime_sunday)) <span class="op">+</span></span>
+<span id="cb10-2"><a href="survey.html#cb10-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> DQ1_Sepcialty), <span class="dt">alpha =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb10-3"><a href="survey.html#cb10-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> DQ1_Sepcialty, <span class="dt">alpha =</span> <span class="fl">0.1</span>)) <span class="op">+</span></span>
+<span id="cb10-4"><a href="survey.html#cb10-4"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;PED&quot;</span>, <span class="st">&quot;GS&quot;</span>, <span class="st">&quot;PSY&quot;</span>, <span class="st">&quot;CS&quot;</span>, <span class="st">&quot;NU&quot;</span>, <span class="st">&quot;Multi&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning: Removed 1280 rows containing non-finite values (stat_boxplot).</code></pre>
 <pre><code>## Warning: Removed 1280 rows containing missing values (geom_point).</code></pre>
-<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="survey.html#cb12-1"></a>db <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(DQ1_Sepcialty) <span class="op">%&gt;%</span></span>
-<span id="cb12-2"><a href="survey.html#cb12-2"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">meanworkhour =</span> <span class="kw">mean</span>(A2_meanworkhourperweek, <span class="dt">na.rm =</span> T),</span>
-<span id="cb12-3"><a href="survey.html#cb12-3"></a>            <span class="dt">maxworkhour =</span> <span class="kw">max</span>(A2_meanworkhourperweek, <span class="dt">na.rm =</span> T),</span>
-<span id="cb12-4"><a href="survey.html#cb12-4"></a>            <span class="dt">minworkhour =</span> <span class="kw">min</span>(A2_meanworkhourperweek, <span class="dt">na.rm =</span> T))</span></code></pre></div>
+<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-17-2.png" width="672" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="survey.html#cb13-1"></a>db <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(DQ1_Sepcialty) <span class="op">%&gt;%</span></span>
+<span id="cb13-2"><a href="survey.html#cb13-2"></a><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">meanworkhour =</span> <span class="kw">mean</span>(A2_meanworkhourperweek, <span class="dt">na.rm =</span> T),</span>
+<span id="cb13-3"><a href="survey.html#cb13-3"></a>            <span class="dt">maxworkhour =</span> <span class="kw">max</span>(A2_meanworkhourperweek, <span class="dt">na.rm =</span> T),</span>
+<span id="cb13-4"><a href="survey.html#cb13-4"></a>            <span class="dt">minworkhour =</span> <span class="kw">min</span>(A2_meanworkhourperweek, <span class="dt">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## # A tibble: 5 x 4
 ##   DQ1_Sepcialty meanworkhour maxworkhour minworkhour
 ##   &lt;fct&gt;                &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
@@ -483,11 +483,11 @@ Reperfusion Tx (+)
 ## 3 NU                    58.5         114           7
 ## 4 PED                   48.4         120           7
 ## 5 PSY                   44.4         100           5</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="survey.html#cb14-1"></a><span class="kw">ggplot</span>(db, <span class="kw">aes</span>(<span class="dt">x =</span> DQ1_Sepcialty, <span class="dt">y =</span> A2_meanworkhourperweek)) <span class="op">+</span></span>
-<span id="cb14-2"><a href="survey.html#cb14-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> DQ1_Sepcialty), <span class="dt">alpha =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span></span>
-<span id="cb14-3"><a href="survey.html#cb14-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> DQ1_Sepcialty, <span class="dt">alpha =</span> <span class="fl">0.1</span>)) <span class="op">+</span></span>
-<span id="cb14-4"><a href="survey.html#cb14-4"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;PED&quot;</span>, <span class="st">&quot;GS&quot;</span>, <span class="st">&quot;PSY&quot;</span>, <span class="st">&quot;CS&quot;</span>, <span class="st">&quot;NU&quot;</span>, <span class="st">&quot;Multi&quot;</span>))</span></code></pre></div>
-<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-12-3.png" width="672" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="survey.html#cb15-1"></a><span class="kw">ggplot</span>(db, <span class="kw">aes</span>(<span class="dt">x =</span> DQ1_Sepcialty, <span class="dt">y =</span> A2_meanworkhourperweek)) <span class="op">+</span></span>
+<span id="cb15-2"><a href="survey.html#cb15-2"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> DQ1_Sepcialty), <span class="dt">alpha =</span> <span class="fl">0.1</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb15-3"><a href="survey.html#cb15-3"></a><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> DQ1_Sepcialty, <span class="dt">alpha =</span> <span class="fl">0.1</span>)) <span class="op">+</span></span>
+<span id="cb15-4"><a href="survey.html#cb15-4"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="st">&quot;PED&quot;</span>, <span class="st">&quot;GS&quot;</span>, <span class="st">&quot;PSY&quot;</span>, <span class="st">&quot;CS&quot;</span>, <span class="st">&quot;NU&quot;</span>, <span class="st">&quot;Multi&quot;</span>))</span></code></pre></div>
+<p><img src="neurology_report_resident_to_files/figure-html/unnamed-chunk-17-3.png" width="672" /></p>
 
 </div>
 </div>
