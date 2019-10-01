@@ -1,0 +1,103 @@
+# Survey
+
+```{r message=FALSE, include=FALSE}
+library(dplyr)
+library(xtable)
+library(ggplot2)
+```
+
+```{r}
+db <- read.csv("data/survey/Survey_2019_Specialist.csv",
+         stringsAsFactors = F)
+```
+
+```{r include=FALSE}
+db$DQ1_Sepcialty <- ifelse(db$DQ1_전문과 == 1, "PED", 
+                           ifelse(db$DQ1_전문과 == 2, "GS", 
+                                  ifelse(db$DQ1_전문과 == 3, "PSY", 
+                                         ifelse(db$DQ1_전문과 == 4, "CS",
+                                                ifelse(db$DQ1_전문과 == 5, "NU", "Multi"))))) %>% factor()
+
+db$DQ1_1_ReperfusionTx <- factor(db$DQ1_1_신경과세부, levels = c(1, 2),
+                            labels = c("Reperfusion Tx (+)", "Reperfusion Tx (-)"))
+
+db$A1_1_worktime_weekday <- as.numeric(db$A1_1_근무시간_평일)
+db$A1_2_worktime_saturday <- as.numeric(db$A1_2_근무시간_토요일)
+db$A1_3_worktime_sunday <- as.numeric(db$A1_3_근무시간_일요일)
+
+db$A2_meanworkhourperweek <- as.numeric(db$A2_근무시간_일주평균)
+
+```
+
+```{r include=FALSE}
+db_nu <- db %>%
+  filter(DQ1_Sepcialty == "NU") # | DQ1_전문과 == "3,5" | DQ1_전문과 == "5,6")
+```
+
+## Demographics
+
+The number of respondent: `r nrow(db)`
+
+```{r echo=FALSE, results="asis"}
+db %>% select(DQ1_Sepcialty) %>% 
+  summary %>% xtable() %>% print(type = "html")
+```
+
+```{r warning=F}
+ggplot(db_nu, aes(x = DQ1_1_ReperfusionTx)) + 
+  geom_bar(aes(fill = DQ1_1_ReperfusionTx)) +
+  scale_x_discrete(limits = c("Reperfusion Tx (+)", "Reperfusion Tx (-)"))
+```
+
+```{r}
+table(db$DQ3_1_전공의_연차, db$DQ1_Sepcialty)
+```
+
+## A. Work hours 
+
+```{r warning=F}
+db %>% group_by(DQ1_Sepcialty) %>%
+  summarise(meanworkhour = mean(A1_1_worktime_weekday, na.rm = T),
+            maxworkhour = max(A1_1_worktime_weekday, na.rm = T),
+            minworkhour = min(A1_1_worktime_weekday, na.rm = T))
+
+ggplot(db, aes(x = DQ1_Sepcialty, y = A1_1_worktime_weekday)) +
+  geom_boxplot(aes(fill = DQ1_Sepcialty), alpha = 0.1) + 
+  geom_jitter(aes(color = DQ1_Sepcialty, alpha = 0.1)) +
+  scale_x_discrete(limits = c("PED", "GS", "PSY", "CS", "NU", "Multi"))
+
+db %>% group_by(DQ1_Sepcialty) %>%
+  summarise(meanworkhour = mean(A1_2_worktime_saturday, na.rm = T),
+            maxworkhour = max(A1_2_worktime_saturday, na.rm = T),
+            minworkhour = min(A1_2_worktime_saturday, na.rm = T))
+
+ggplot(db, aes(x = DQ1_Sepcialty, y = A1_2_worktime_saturday)) +
+  geom_boxplot(aes(fill = DQ1_Sepcialty), alpha = 0.1) + 
+  geom_jitter(aes(color = DQ1_Sepcialty, alpha = 0.1)) +
+  scale_x_discrete(limits = c("PED", "GS", "PSY", "CS", "NU", "Multi"))
+
+db %>% group_by(DQ1_Sepcialty) %>%
+  summarise(meanworkhour = mean(A1_3_worktime_sunday, na.rm = T),
+            maxworkhour = max(A1_3_worktime_sunday, na.rm = T),
+            minworkhour = min(A1_3_worktime_sunday, na.rm = T))
+
+ggplot(db, aes(x = DQ1_Sepcialty, y = A1_3_worktime_sunday)) +
+  geom_boxplot(aes(fill = DQ1_Sepcialty), alpha = 0.1) + 
+  geom_jitter(aes(color = DQ1_Sepcialty, alpha = 0.1)) +
+  scale_x_discrete(limits = c("PED", "GS", "PSY", "CS", "NU", "Multi"))
+
+db %>% group_by(DQ1_Sepcialty) %>%
+  summarise(meanworkhour = mean(A2_meanworkhourperweek, na.rm = T),
+            maxworkhour = max(A2_meanworkhourperweek, na.rm = T),
+            minworkhour = min(A2_meanworkhourperweek, na.rm = T))
+
+ggplot(db, aes(x = DQ1_Sepcialty, y = A2_meanworkhourperweek)) +
+  geom_boxplot(aes(fill = DQ1_Sepcialty), alpha = 0.1) + 
+  geom_jitter(aes(color = DQ1_Sepcialty, alpha = 0.1)) +
+  scale_x_discrete(limits = c("PED", "GS", "PSY", "CS", "NU", "Multi"))
+```
+
+
+
+
+

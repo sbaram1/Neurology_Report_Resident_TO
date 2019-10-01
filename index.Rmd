@@ -20,5 +20,8 @@ description: "This is a minimal example of using the bookdown package to write a
 
 # Things to be done {-}
 
+1. KPS연구를 중심으로 기존 추계연구 critical review
+2. 해외 연구 현황 추가
+
 
 
