@@ -140,6 +140,15 @@
 \chapter*{Things to be done}\label{things-to-be-done}}
 \addcontentsline{toc}{chapter}{Things to be done}
 
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  KPS연구를 중심으로 기존 추계연구 critical review
+\item
+  해외 연구 현황 추가
+\end{enumerate}
+
 \hypertarget{DemandSupplyNeurologist}{%
 \chapter{신경과 전문의 수급현황}\label{DemandSupplyNeurologist}}
 
@@ -308,6 +317,11 @@
   환자 1인당 평균진료시간: 7.9분 (신경과), 8.1분 (일반외과),
 \end{itemize}
 
+\hypertarget{kps}{%
+\section{5개과 설문분석 결과와 KPS}\label{kps}}
+
+NU: 238, KPS 193
+
 \hypertarget{section-9}{%
 \chapter{전문의 수급에 영향을 줄 만한 정책적 이슈}\label{section-9}}
 
@@ -350,103 +364,163 @@
 \hypertarget{survey}{%
 \chapter{Survey}\label{survey}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{db <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/survey/Survey_2019_Specialist.csv"}\NormalTok{,}
-         \DataTypeTok{stringsAsFactors =}\NormalTok{ F)}
-\end{Highlighting}
-\end{Shaded}
+\hypertarget{section-12}{%
+\section{전반적인 요약}\label{section-12}}
 
-\hypertarget{demographics}{%
-\section{Demographics}\label{demographics}}
+The number of total respondent: 2497
 
-The number of respondent: 2497
+The number of reliable respondent: 1769
 
-DQ1\_Sepcialty
+\hypertarget{section-13}{%
+\subsection{전공별 참여 인원}\label{section-13}}
 
-X
+Specialty
 
-CS : 85
+CS : 64
 
-X.1
+GS :341
 
-GS :497
+NU :238
 
-X.2
+PED:572
 
-Multi: 19
+PSY:554
 
-X.3
-
-NU :296
-
-X.4
-
-PED :835
-
-X.5
-
-PSY :765
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(db_nu, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ DQ1_}\DecValTok{1}\NormalTok{_ReperfusionTx)) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{fill =}\NormalTok{ DQ1_}\DecValTok{1}\NormalTok{_ReperfusionTx)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\StringTok{"Reperfusion Tx (+)"}\NormalTok{, }\StringTok{"Reperfusion Tx (-)"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
+\hypertarget{section-14}{%
+\subsection{신경과 의사중 급성 뇌경색 치료에 참여하는 인원}\label{section-14}}
 
 \includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-11-1.pdf}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{table}\NormalTok{(db}\OperatorTok{$}\NormalTok{DQ3_}\DecValTok{1}\NormalTok{_전공의_연차, db}\OperatorTok{$}\NormalTok{DQ1_Sepcialty)}
-\end{Highlighting}
-\end{Shaded}
+\hypertarget{section-15}{%
+\subsection{전공의 참여자수}\label{section-15}}
 
 \begin{verbatim}
 ##    
-##     CS GS Multi NU PED PSY
-##   1  0  1     1  0  15  10
-##   2  0  2     0  5  14  17
-##   3  0  1     1 11  21  16
-##   4  1  0     2 12  26  19
+##     CS GS NU PED PSY
+##   1  0  0  0  10  10
+##   2  0  0  4   8  11
+##   3  0  0 11  10  10
+##   4  1  0  9  14  15
 \end{verbatim}
 
-\hypertarget{a.-work-hours}{%
-\section{A. Work hours}\label{a.-work-hours}}
+\begin{itemize}
+\tightlist
+\item
+  전공의의 숫자가 적어서 전공의의 상황을 알기 어려움
+\end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{db }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(DQ1_Sepcialty) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{meanworkhour =} \KeywordTok{mean}\NormalTok{(A1_}\DecValTok{1}\NormalTok{_worktime_weekday, }\DataTypeTok{na.rm =}\NormalTok{ T),}
-            \DataTypeTok{maxworkhour =} \KeywordTok{max}\NormalTok{(A1_}\DecValTok{1}\NormalTok{_worktime_weekday, }\DataTypeTok{na.rm =}\NormalTok{ T),}
-            \DataTypeTok{minworkhour =} \KeywordTok{min}\NormalTok{(A1_}\DecValTok{1}\NormalTok{_worktime_weekday, }\DataTypeTok{na.rm =}\NormalTok{ T))}
-\end{Highlighting}
-\end{Shaded}
+\hypertarget{a.-}{%
+\section{A. 근무시간}\label{a.-}}
 
-\begin{verbatim}
-## # A tibble: 6 x 4
-##   DQ1_Sepcialty meanworkhour maxworkhour minworkhour
-##   <fct>                <dbl>       <dbl>       <dbl>
-## 1 CS                   10.9           18           6
-## 2 GS                   10.4           24           4
-## 3 Multi                 8.55          12           5
-## 4 NU                   10.7           18           5
-## 5 PED                   8.92          24           2
-## 6 PSY                   8.57          40           3
-\end{verbatim}
+\hypertarget{section-16}{%
+\subsection{과별 주중 근무시간 (평균, 최대, 최소, 표준편차)}\label{section-16}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{ggplot}\NormalTok{(db, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ DQ1_Sepcialty, }\DataTypeTok{y =}\NormalTok{ A1_}\DecValTok{1}\NormalTok{_worktime_weekday)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{geom_boxplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{fill =}\NormalTok{ DQ1_Sepcialty), }\DataTypeTok{alpha =} \FloatTok{0.1}\NormalTok{) }\OperatorTok{+}\StringTok{ }
-\StringTok{  }\KeywordTok{geom_jitter}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{color =}\NormalTok{ DQ1_Sepcialty, }\DataTypeTok{alpha =} \FloatTok{0.1}\NormalTok{)) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{scale_x_discrete}\NormalTok{(}\DataTypeTok{limits =} \KeywordTok{c}\NormalTok{(}\StringTok{"PED"}\NormalTok{, }\StringTok{"GS"}\NormalTok{, }\StringTok{"PSY"}\NormalTok{, }\StringTok{"CS"}\NormalTok{, }\StringTok{"NU"}\NormalTok{, }\StringTok{"Multi"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
+Specialty
 
-\includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-13-1.pdf}
+Mean work hour
+
+Max
+
+Min
+
+Standard Deviaiton
+
+CS
+
+10.88
+
+18
+
+6
+
+2.40
+
+GS
+
+10.38
+
+24
+
+4
+
+2.67
+
+NU
+
+10.71
+
+18
+
+5
+
+2.34
+
+PED
+
+8.89
+
+24
+
+2
+
+2.19
+
+PSY
+
+8.51
+
+18
+
+3
+
+1.57
+
+\includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\begin{itemize}
+\tightlist
+\item
+  평균적으로 흉부외과, 일반외과, 신경과의 평균 주중 근무시간이 길다.
+\end{itemize}
+
+ReperfusionTx
+
+Mean work hour
+
+Max
+
+Min
+
+Standard Deviaiton
+
+ReperfusionTx(-)
+
+10.15
+
+15
+
+5
+
+2.33
+
+ReperfusionTx(+)
+
+11.13
+
+18
+
+8
+
+2.26
+
+\includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\begin{itemize}
+\item
+  또한, 신경과 의사중에서도 급성기 뇌경색 치료를 담당하는 인력의 평균 근무시간을 더 길다.
+\item
+  위의 결과를 보면 과별로도 근무시간이 차이가 나며, 같은 과 내에서도 응급질환의 진료여부에 따라 근무 부담에 차이가 난다.
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -458,15 +532,14 @@ PSY :765
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 6 x 4
+## # A tibble: 5 x 4
 ##   DQ1_Sepcialty meanworkhour maxworkhour minworkhour
 ##   <fct>                <dbl>       <dbl>       <dbl>
 ## 1 CS                    4.94          24           1
-## 2 GS                    4.52          24           1
-## 3 Multi                 4.71          12           1
-## 4 NU                    4.86          24           1
-## 5 PED                   5.18          24           1
-## 6 PSY                   4.43          24           0
+## 2 GS                    4.45          24           1
+## 3 NU                    4.86          24           1
+## 4 PED                   5.15          24           1
+## 5 PSY                   4.62          24           1
 \end{verbatim}
 
 \begin{Shaded}
@@ -478,7 +551,15 @@ PSY :765
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-13-2.pdf}
+\begin{verbatim}
+## Warning: Removed 429 rows containing non-finite values (stat_boxplot).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 429 rows containing missing values (geom_point).
+\end{verbatim}
+
+\includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-17-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -490,15 +571,14 @@ PSY :765
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 6 x 4
+## # A tibble: 5 x 4
 ##   DQ1_Sepcialty meanworkhour maxworkhour minworkhour
 ##   <fct>                <dbl>       <dbl>       <dbl>
 ## 1 CS                    5.67          24           1
-## 2 GS                    4.54          24           1
-## 3 Multi                 7.33          12           4
-## 4 NU                    5.52          24           1
-## 5 PED                   5.95          24           1
-## 6 PSY                   2.74          24           0
+## 2 GS                    4.38          24           1
+## 3 NU                    5.52          24           1
+## 4 PED                   5.93          24           1
+## 5 PSY                   7             24           1
 \end{verbatim}
 
 \begin{Shaded}
@@ -510,7 +590,15 @@ PSY :765
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-13-3.pdf}
+\begin{verbatim}
+## Warning: Removed 1280 rows containing non-finite values (stat_boxplot).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 1280 rows containing missing values (geom_point).
+\end{verbatim}
+
+\includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-17-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -522,15 +610,14 @@ PSY :765
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 6 x 4
+## # A tibble: 5 x 4
 ##   DQ1_Sepcialty meanworkhour maxworkhour minworkhour
 ##   <fct>                <dbl>       <dbl>       <dbl>
 ## 1 CS                    63.7         110           8
-## 2 GS                    56.8         200           6
-## 3 Multi                 48.4          80          22
-## 4 NU                    58.5         114           7
-## 5 PED                   48.7         168           0
-## 6 PSY                   44.3         100           5
+## 2 GS                    56.0         120           6
+## 3 NU                    58.5         114           7
+## 4 PED                   48.4         120           7
+## 5 PSY                   44.4         100           5
 \end{verbatim}
 
 \begin{Shaded}
@@ -542,7 +629,7 @@ PSY :765
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-13-4.pdf}
+\includegraphics{Neurology_Report_Resident_TO_files/figure-latex/unnamed-chunk-17-3.pdf}
 
 \bibliography{book.bib,packages.bib}
 
