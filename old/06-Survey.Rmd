@@ -1,0 +1,238 @@
+# Survey
+
+```{r message=FALSE, include=FALSE}
+library(dplyr)
+library(xtable)
+library(kableExtra)
+library(ggplot2)
+library(tibble)
+```
+
+```{r include=FALSE}
+db0 <- read.csv("data/survey/Survey_2019_Specialist.csv",
+         stringsAsFactors = F)
+db <- read.csv("data/survey/Survey_2019_Specialist_rm_unfaithful.csv",
+         stringsAsFactors = F)
+```
+
+```{r include=FALSE}
+db$DQ1_Sepcialty <- ifelse(db$DQ1_전문과_코딩변경 == 1, "NU", 
+                           ifelse(db$DQ1_전문과_코딩변경 == 2, "PSY", 
+                                  ifelse(db$DQ1_전문과_코딩변경 == 3, "CS", 
+                                         ifelse(db$DQ1_전문과_코딩변경 == 4, "PED",
+                                                ifelse(db$DQ1_전문과_코딩변경 == 5, "GS", "Multi"))))) %>% factor()
+
+db$DQ1_1_ReperfusionTx <- ifelse(db$DQ1_1_신경과세부 == 1, "Reperfusion Tx (+)", 
+                                 ifelse(db$DQ1_1_신경과세부 == 2, "Reperfusion Tx (-)", NA)) %>%
+  factor()
+
+db$A1_1_worktime_weekday <- as.numeric(db$A1_1_근무시간_평일)
+db$A1_2_worktime_saturday <- as.numeric(db$A1_2_근무시간_토요일)
+db$A1_2_worktime_saturday <- ifelse(db$A1_2_worktime_saturday == 999, NA,
+                                    db$A1_2_worktime_saturday)
+db$A1_3_worktime_sunday <- as.numeric(db$A1_3_근무시간_일요일)
+db$A1_3_worktime_sunday <- ifelse(db$A1_3_worktime_sunday == 999, NA, db$A1_3_worktime_sunday)
+
+db$A2_meanworkhourperweek <- as.numeric(db$A2_근무시간_일주평균)
+
+db$A3_annual_total_holiday <- as.numeric(db$A3_8_연간.휴무일합계)
+
+```
+
+```{r include=FALSE}
+db_nu <- db %>%
+  filter(DQ1_Sepcialty == "NU") # | DQ1_전문과 == "3,5" | DQ1_전문과 == "5,6")
+```
+
+## 전반적인 요약
+
+The number of total respondent: `r nrow(db0)`
+
+The number of reliable respondent: `r nrow(db)`
+
+### 전공별 참여 인원 
+```{r echo=FALSE, results="asis"}
+db %>% select(DQ1_Sepcialty) %>% 
+  rename(Specialty = DQ1_Sepcialty) %>%
+  summary() %>% kable()
+
+```
+
+### 신경과 의사중 급성 뇌경색 치료에 참여하는 인원
+```{r echo=FALSE, warning=FALSE}
+ggplot(db_nu, aes(x = DQ1_1_ReperfusionTx)) + 
+  theme_bw() +
+  geom_bar(aes(fill = DQ1_1_ReperfusionTx)) +
+  scale_x_discrete(limits = c("Reperfusion Tx (+)", "Reperfusion Tx (-)")) +
+  scale_fill_discrete("Reperfusion Treatment")
+```
+
+- 신경과 의사중 `r round(sum(db_nu$DQ1_1_ReperfusionTx == "Reperfusion Tx (+)")/nrow(db_nu)*100, 2)`%가 급성 뇌경색 치료에 참여하고 있음. 
+
+### 전공의 참여자수 
+```{r echo=FALSE}
+table(db$DQ3_1_전공의_연차, db$DQ1_Sepcialty)
+```
+
+- 전공의의 숫자가 적어서 전공의의 상황을 알기 어려움
+
+## A1. 근무시간 
+
+### 과별 주중 근무시간 (평균, 최대, 최소, 표준편차)
+```{r echo=FALSE, warning=FALSE, results='asis'}
+db_temp <- db %>% group_by(DQ1_Sepcialty) %>%
+  summarise(meanworkhour = mean(A1_1_worktime_weekday, na.rm = T) %>% round(2),
+            maxworkhour = max(A1_1_worktime_weekday, na.rm = T),
+            minworkhour = min(A1_1_worktime_weekday, na.rm = T),
+            StandDeviation = sd(A1_1_worktime_weekday, na.rm = T) %>% round(2)) 
+names(db_temp) <- c("Specialty", "Mean work hour", "Max", "Min", "Standard Deviaiton")
+db_temp %>%
+  kable()
+```
+
+```{r echo=FALSE, warning=FALSE}
+ggplot(db, aes(x = DQ1_Sepcialty, y = A1_1_worktime_weekday)) +
+  # geom_violin(trim = T) +
+  geom_jitter(aes(color = DQ1_Sepcialty), alpha = 0.4) +
+  geom_boxplot(alpha = 0.1) +
+  coord_flip() +
+  theme_bw() +
+  scale_y_continuous("Weekday work hour") +
+  scale_x_discrete("Specialty") +
+  scale_color_discrete("Specialty")
+```
+
+- 평균적으로 흉부외과, 일반외과, 신경과의 평균 주중 근무시간이 길다. 
+
+```{r echo=FALSE, warning=FALSE, results='asis'}
+db_temp <- db %>% filter(DQ1_Sepcialty == "NU") %>%
+  group_by(DQ1_1_ReperfusionTx) %>%
+  summarise(meanworkhour = mean(A1_1_worktime_weekday, na.rm = T) %>% round(2),
+            maxworkhour = max(A1_1_worktime_weekday, na.rm = T),
+            minworkhour = min(A1_1_worktime_weekday, na.rm = T),
+            StandDeviation = sd(A1_1_worktime_weekday, na.rm = T) %>% round(2))
+names(db_temp) <- c("ReperfusionTx", "Mean work hour", "Max", "Min", "Standard Deviaiton")
+db_temp %>% kable()
+```
+
+```{r echo=FALSE, warning=FALSE}
+db %>% filter(DQ1_Sepcialty == "NU") %>%
+  ggplot(aes(x = DQ1_1_ReperfusionTx, y = A1_1_worktime_weekday)) +
+  # geom_violin(trim = T) +
+  geom_jitter(aes(color = DQ1_1_ReperfusionTx), alpha = 0.4) +
+  geom_boxplot(alpha = 0.1) +
+  coord_flip() +
+  theme_bw() +
+  scale_y_continuous("Weekday work hour") +
+  scale_x_discrete("ReperfusionTx") +
+  scale_color_discrete("Reperfusion Treatment")
+```
+
+- 또한, 신경과 의사중에서도 급성기 뇌경색 치료를 담당하는 인력의 평균 근무시간을 더 길다. 
+
+- 위의 결과를 보면 과별로도 근무시간이 차이가 나며, 같은 과 내에서도 응급질환의 진료여부에 따라 근무 부담에 차이가 난다.
+
+### 과별 주당 근무시간
+
+```{r echo=FALSE, warning=FALSE, results='asis'}
+db_temp <- db %>% group_by(DQ1_Sepcialty) %>%
+  summarise(meanworkhour = mean(A2_meanworkhourperweek, na.rm = T) %>% round(2),
+            maxworkhour = max(A2_meanworkhourperweek, na.rm = T),
+            minworkhour = min(A2_meanworkhourperweek, na.rm = T),
+            StandDeviation = sd(A2_meanworkhourperweek, na.rm = T) %>% round(2))
+names(db_temp) <- c("Specialty", "Mean work hour", "Max", "Min", "Standard Deviaiton")
+db_temp %>% kable()
+```
+
+```{r echo=FALSE, warning=FALSE}
+ggplot(db, aes(x = DQ1_Sepcialty, y = A2_meanworkhourperweek)) +
+  # geom_violin(trim = T) +
+  geom_jitter(aes(color = DQ1_Sepcialty), alpha = 0.4) +
+  geom_boxplot(alpha = 0.1) +
+  coord_flip() +
+  theme_bw() +
+  scale_y_continuous("mean work hour/week") +
+  scale_x_discrete("Specialty") +
+  scale_color_discrete("Specialty")
+```
+
+- 주당 근무 시간도 주중 근무시간과 비슷한 경향을 보인다.
+
+```{r echo=FALSE, warning=FALSE, results='asis'}
+db_temp <- db %>% filter(DQ1_Sepcialty == "NU") %>%
+  group_by(DQ1_1_ReperfusionTx) %>%
+  summarise(meanworkhour = mean(A2_meanworkhourperweek, na.rm = T) %>% round(2),
+            maxworkhour = max(A2_meanworkhourperweek, na.rm = T),
+            minworkhour = min(A2_meanworkhourperweek, na.rm = T),
+            StandDeviation = sd(A2_meanworkhourperweek, na.rm = T) %>% round(2))
+names(db_temp) <- c("ReperfusionTx", "Mean work hour", "Max", "Min", "Standard Deviaiton")
+db_temp %>% kable()
+```
+
+```{r echo=FALSE, warning=FALSE}
+db %>% filter(DQ1_Sepcialty == "NU") %>%
+  ggplot(aes(x = DQ1_1_ReperfusionTx, y = A2_meanworkhourperweek)) +
+  # geom_violin(trim = T) +
+  geom_jitter(aes(color = DQ1_1_ReperfusionTx), alpha = 0.4) +
+  geom_boxplot(alpha = 0.1) +
+  coord_flip() +
+  theme_bw() +
+  scale_y_continuous("Weekday work hour") +
+  scale_x_discrete("ReperfusionTx") +
+  scale_color_discrete("Reperfusion Treatment")
+```
+
+- 주당 근무시간도 급성 뇌졸중 치료를 담당하는 신경과 의사가 10시간가량 더 많은 근무를 한다.
+
+## A3. 휴무일 
+
+### 연간 총 휴무일
+```{r echo=FALSE, warning=FALSE, results='asis'}
+# db$A3_annual_total_holiday
+
+db_temp <- db %>% group_by(DQ1_Sepcialty) %>%
+  summarise(meanworkhour = mean(A3_annual_total_holiday, na.rm = T) %>% round(2),
+            maxworkhour = max(A3_annual_total_holiday, na.rm = T),
+            minworkhour = min(A3_annual_total_holiday, na.rm = T),
+            StandDeviation = sd(A3_annual_total_holiday, na.rm = T) %>% round(2))
+names(db_temp) <- c("Specialty", "Mean holiday", "Max", "Min", "Standard Deviaiton")
+db_temp %>% kable()
+```
+
+```{r echo=FALSE, warning=FALSE}
+ggplot(db, aes(x = DQ1_Sepcialty, y = A3_annual_total_holiday)) +
+  # geom_violin(trim = T) +
+  geom_jitter(aes(color = DQ1_Sepcialty), alpha = 0.4) +
+  geom_boxplot(alpha = 0.1) +
+  coord_flip() +
+  theme_bw() +
+  scale_y_continuous("holiday/year") +
+  scale_x_discrete("Specialty") +
+  scale_color_discrete("Specialty")
+```
+
+```{r echo=FALSE, warning=FALSE, results='asis'}
+db_temp <- db %>% filter(DQ1_Sepcialty == "NU") %>%
+  group_by(DQ1_1_ReperfusionTx) %>%
+  summarise(meanworkhour = mean(A3_annual_total_holiday, na.rm = T) %>% round(2),
+            maxworkhour = max(A3_annual_total_holiday, na.rm = T),
+            minworkhour = min(A3_annual_total_holiday, na.rm = T),
+            StandDeviation = sd(A3_annual_total_holiday, na.rm = T) %>% round(2))
+names(db_temp) <- c("ReperfusionTx", "Mean work hour", "Max", "Min", "Standard Deviaiton")
+db_temp %>% kable()
+```
+
+```{r echo=FALSE, warning=FALSE}
+db %>% filter(DQ1_Sepcialty == "NU") %>%
+  ggplot(aes(x = DQ1_1_ReperfusionTx, y = A3_annual_total_holiday)) +
+  # geom_violin(trim = T) +
+  geom_jitter(aes(color = DQ1_1_ReperfusionTx), alpha = 0.4) +
+  geom_boxplot(alpha = 0.1) +
+  coord_flip() +
+  theme_bw() +
+  scale_y_continuous("Holiday/year") +
+  scale_x_discrete("ReperfusionTx") +
+  scale_color_discrete("Reperfusion Treatment")
+```
+
+- 

@@ -7,7 +7,15 @@
 
 <!--  - 근거로 통계자료 활용을 권고드림. -->
 
-## 인구 10만명당 신경과 전문의 수 
+•	신경과 의사의 부족은 전 세계적인 현상임. (How do we fix the shortage of neurologists? Lancet Neurology 2018 Vol 17, No. 6 p502–503)
+
+    - 신경과 의사의 burnout
+    - 급성 신경학적 치료의 발전 및 확장: 응급 진료가 늘어남. 
+    - 타 전공 대비 보상이 적음
+  
+  
+## 신경과 전문의의 나라별 비교 (인구 10만명당) 
+
 
 ```{r, include=FALSE}
 lapply(c("dplyr", "ggplot2", "knitr", "kableExtra", "lubridate", 
@@ -55,12 +63,75 @@ global %>%
 # ggsave("figures/global.png", width = 6.25 * 1.5, height = 3.86)
 ```
 
-•	인구 10만명당 신경과 전문의의 숫자는 한국이 3.57명 (2018년기준)으로 네덜란드, 일본, 헝가리, 스위스, 칠레 등에 비해 적음.
+•	인구 10만명당 신경과 전문의의 숫자는 한국이 3.57명 (2018년기준)으로 미국, 독일, 일본, 이탈리아, 오스트리아 등에 비해 적음 (EU 통계자료 at https://ec.europa.eu/eurostat/web/main/home).
 
 •	통계청 자료에 의한 2018년 인구는 51,014,947명으로, 인구 10만명당 신경과 전문의 수가 네덜란드 수준인 6명이 되려면 3060명이 필요함 (2018년 전문의 수가1845명이므로 부족분은 1215명).
 
-•	미국의 경우 2012년 기준 인구 10만명당 신경과 전문의는 5.21명이며 2025년에는 6.21명이 필요할 것으로 예상되고 있음.
+•	미국의 경우 2012년 기준 인구 10만명당 신경과 전문의는 5.21명이며 2025년에는 6.21명이 필요할 것으로 예상되고 있음 (Supply and demand analysis of the current and future US neurology workforce, Neurology 2013;81:470–478).
 
+## 전문과목별 현황 (2017년 4/4분기 통계청)
+
+```{r echo=F}
+db <- data.frame(major = c("신경과", "내과", "재활의학과", "정신건강의학과", "가정의학과", "총계"),
+                 total = c(1734, 15031, 1939, 3410, 6229, 81041),
+                 nursinghome = c(265, 806, 551, 559, 1038, 5086),
+                 tertiaryGenH = c(418, 3051, 211, 330, 228, 12059),
+                 secondaryGenH = c(527, 3344, 277, 351, 483, 14963),
+                 GenH = c(165, 1328, 338, 808, 363, 10264),
+                 clinic = c(280, 6402, 465, 1355, 4022, 37307)
+)
+names(db) <- c("전문과목", "전체", "요양병원", "상급종합병원", "종합병원", "병원", "의원")
+kable(db)
+names(db) <- c("major", "total", "nursinghome", "tertiaryGenH", "secondaryGenH", "GenH", "clinic")
+```
+
+```{r echo=F}
+db <- db %>% 
+  mutate(total_prop = 100,
+         nursinghome_prop = round(nursinghome / total, 2)*100,
+         tertiaryGenH_prop = round(tertiaryGenH / total, 2)*100,
+         secondaryGenH_prop = round(secondaryGenH / total, 2)*100,
+         GenH_prop = round(GenH / total, 2)*100,
+         clinic_prop = round(clinic / total, 2)*100) 
+db2 <- db %>%
+  select(major, total_prop, nursinghome_prop, tertiaryGenH_prop, secondaryGenH_prop, GenH_prop, clinic_prop) 
+
+names(db2) <- c("전문과목", "전체(%)", "요양병원(%)", "상급종합병원(%)", "종합병원(%)", "병원(%)", "의원(%)")
+kable(db2)
+```
+
+•	전체 의사 중 46%가 의원에 근무함에 비해 신경과는 16%만이 의원에 근무함. 의원급 진료기관에서 신경과의사의 부족은 환자의 3차기관 쏠림 현상을 유발하고 있음. 이에 비해서 내과의 경우에는 전체 내과 전문의의 43%가 의원급에서 근무하며, 이에 따라 내과진료의 수요가 의원급에서 보다 충실하게 해결되고 있음.
+
+•	요양병원에 입원하는 환자의 많은 수가 뇌졸중, 치매임에도 불구하고 신경과 전문의의 15%만이 요양병원에 근무하며, 정신건강의학과의 16%와 비슷한 수준임.
+
+•	요양병원에 근무하는 의사를 전문 과목별로 볼 때, 다음 그래프에서 보는 바와 같이 신경과는 정신건강의학과의 절반에도 미치지 못하고 있음 (신경과 5%, 정신건강의학과 11%)
+
+
+```{r echo=F}
+db$major <- c("NU", "IM", "RM", "NP", "FM", "Total")
+db %>% 
+  select(major, nursinghome) %>%
+  mutate(specialty_prop = round(nursinghome / db$nursinghome[db$major == "Total"], 2) * 100, 
+         major = factor(major, levels = major[order(specialty_prop)])) %>%
+  # select(major, specialty_prop, tertiaryGenH_prop, secondaryGenH_prop, GenH_prop, clinic_prop) %>%
+  arrange(specialty_prop) %>%
+  filter(major != "Total") %>%
+  ggplot(aes(major, specialty_prop, fill = major)) +
+    geom_bar(stat = "identity") +
+    theme_bw() +
+    theme(panel.grid.major = element_blank(),
+        # panel.grid.minor = element_blank(), 
+        panel.border = element_blank(),
+        axis.line = element_line(size = 0.5, color = "black")) +     
+    scale_x_discrete("Specialty") + 
+                     # breaks = c("IM", "NR", "NP", "FM", "RM"),
+    scale_y_continuous("Proportion of specialties",
+                       limits = c(0, 25)) +
+    scale_fill_discrete(guide = F) +
+    geom_text(aes(label = paste(specialty_prop, "%"), vjust = -0.5))
+
+# ggsave("figures/specialist_institute.png")
+```
 
 ## 한국의 신경과 전문의 연령별 분포 (2018.4기준)
 
@@ -119,5 +190,5 @@ graph_db %>%
 
 ```
 
-
+•	현재 신경과의사의 연령 분포를 보면 30대 후반이 가장 많기는 하나, 30대 초반부터는 급격히 줄어 들고 있어, 현재 상황이 5-10년이상 지속될 경우 응급 진료 대응등에 심각한 문제가 발생할 가능성이 있음. 
 
